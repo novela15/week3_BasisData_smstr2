@@ -35,8 +35,6 @@ MariaDB [(none)]> show databases;
 MariaDB [(none)]> use novel
 Database changed
 
-MariaDB [novel]> create table TXT;
-ERROR 1113 (42000): A table must have at least 1 column
 MariaDB [novel]> create table TXT (
     -> NPM CHAR(5) Primary Key NOT NULL,
     -> Nama VARCHAR(25) NOT NULL,
