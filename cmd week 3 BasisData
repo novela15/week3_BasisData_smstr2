@@ -1,0 +1,176 @@
+Microsoft Windows [Version 10.0.22631.4890]
+(c) Microsoft Corporation. All rights reserved.
+
+C:\Users\lenovo>CD C:\xampp\mysql\bin
+
+C:\xampp\mysql\bin>mysql -u root -p
+Enter password:
+ERROR 2002 (HY000): Can't connect to MySQL server on 'localhost' (10061)
+
+C:\xampp\mysql\bin>mysql -u root -p
+Enter password:
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MariaDB connection id is 8
+Server version: 10.4.32-MariaDB mariadb.org binary distribution
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MariaDB [(none)]> create database novel;
+Query OK, 1 row affected (0.002 sec)
+
+MariaDB [(none)]> show databases;
++--------------------+
+| Database           |
++--------------------+
+| akademik           |
+| information_schema |
+| mahasiswa          |
+| mysql              |
+| nopel              |
+| novel              |
+| performance_schema |
+| perusahaan         |
+| phpmyadmin         |
+| siperpus           |
+| test               |
++--------------------+
+11 rows in set (0.032 sec)
+
+MariaDB [(none)]> use novel
+Database changed
+MariaDB [novel]> create table TXT;
+ERROR 1113 (42000): A table must have at least 1 column
+MariaDB [novel]> create table TXT (
+    -> NPM CHAR(5) Primary Key NOT NULL,
+    -> Nama VARCHAR(25) NOT NULL,
+    -> Tempat_Lahir VARCHAR(30) NOT NULL,
+    -> Tanggal_Lahir Date NOT NULL,
+    -> Jenis_Kelamin Enum('L','P') NOT NULL,
+    -> No_HP VARCHAR(25) NOT NULL
+    -> );
+Query OK, 0 rows affected (0.050 sec)
+
+MariaDB [novel]> SHOW TABLES;
++-----------------+
+| Tables_in_novel |
++-----------------+
+| txt             |
++-----------------+
+1 row in set (0.029 sec)
+
+MariaDB [novel]> desc txt;
++---------------+---------------+------+-----+---------+-------+
+| Field         | Type          | Null | Key | Default | Extra |
++---------------+---------------+------+-----+---------+-------+
+| NPM           | char(5)       | NO   | PRI | NULL    |       |
+| Nama          | varchar(25)   | NO   |     | NULL    |       |
+| Tempat_Lahir  | varchar(30)   | NO   |     | NULL    |       |
+| Tanggal_Lahir | date          | NO   |     | NULL    |       |
+| Jenis_Kelamin | enum('L','P') | NO   |     | NULL    |       |
+| No_HP         | varchar(25)   | NO   |     | NULL    |       |
++---------------+---------------+------+-----+---------+-------+
+6 rows in set (0.071 sec)
+
+MariaDB [novel]> INSERT INTO vel
+    -> (`Nama`,`;
+    `>
+    `> );
+    `>
+    `> `);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '' at line 2
+MariaDB [novel]> INSERT INTO TXT VALUES ('2440', 'novela', 'Kendal', '2006/11/15', 'P', '083100000081');
+Query OK, 1 row affected (0.183 sec)
+
+MariaDB [novel]> desc txt;
++---------------+---------------+------+-----+---------+-------+
+| Field         | Type          | Null | Key | Default | Extra |
++---------------+---------------+------+-----+---------+-------+
+| NPM           | char(5)       | NO   | PRI | NULL    |       |
+| Nama          | varchar(25)   | NO   |     | NULL    |       |
+| Tempat_Lahir  | varchar(30)   | NO   |     | NULL    |       |
+| Tanggal_Lahir | date          | NO   |     | NULL    |       |
+| Jenis_Kelamin | enum('L','P') | NO   |     | NULL    |       |
+| No_HP         | varchar(25)   | NO   |     | NULL    |       |
++---------------+---------------+------+-----+---------+-------+
+6 rows in set (0.066 sec)
+
+MariaDB [novel]> select * from txt;
++------+--------+--------------+---------------+---------------+--------------+
+| NPM  | Nama   | Tempat_Lahir | Tanggal_Lahir | Jenis_Kelamin | No_HP        |
++------+--------+--------------+---------------+---------------+--------------+
+| 2440 | novela | Kendal       | 2006-11-15    | P             | 083100000081 |
++------+--------+--------------+---------------+---------------+--------------+
+1 row in set (0.031 sec)
+
+MariaDB [novel]> INSERT INTO TXT VALUES ('2442', 'supil', 'cirebyon', '1997/09/1', 'P', '082000035');
+
+Query OK, 1 row affected (0.032 sec)
+
+MariaDB [novel]> INSERT INTO TXT VALUES ('2445', 'owel', 'blora', '1996/06/15', 'P', '08200000092');
+
+Query OK, 1 row affected (0.032 sec)
+
+MariaDB [novel]> INSERT INTO TXT VALUES ('2445', 'owel', 'blora', '1996/06/15', 'P', '08200000092');
+
+ERROR 1062 (23000): Duplicate entry '2445' for key 'PRIMARY'
+MariaDB [novel]> INSERT INTO TXT VALUES ('99', 'yeonjun', 'seoul', '1999/09/13', 'L', '08100000099');
+
+Query OK, 1 row affected (0.005 sec)
+
+MariaDB [novel]> INSERT INTO TXT VALUES ('95', 'seungcheol', 'daegu', '1995/09/13', 'L', '08100000095'
+);
+Query OK, 1 row affected (0.031 sec)
+
+MariaDB [novel]> select * from txt;
++------+------------+--------------+---------------+---------------+--------------+
+| NPM  | Nama       | Tempat_Lahir | Tanggal_Lahir | Jenis_Kelamin | No_HP        |
++------+------------+--------------+---------------+---------------+--------------+
+| 2440 | novela     | Kendal       | 2006-11-15    | P             | 083100000081 |
+| 2442 | supil      | cirebyon     | 1997-09-01    | P             | 082000035    |
+| 2445 | owel       | blora        | 1996-06-15    | P             | 08200000092  |
+| 95   | seungcheol | daegu        | 1995-09-13    | L             | 08100000095  |
+| 99   | yeonjun    | seoul        | 1999-09-13    | L             | 08100000099  |
++------+------------+--------------+---------------+---------------+--------------+
+5 rows in set (0.001 sec)
+
+MariaDB [novel]> UPDATE `txt` SET `Nama` = 'oyel' WHERE NPM = '2445';
+Query OK, 1 row affected (0.058 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+MariaDB [novel]> select * from txt;
++------+------------+--------------+---------------+---------------+--------------+
+| NPM  | Nama       | Tempat_Lahir | Tanggal_Lahir | Jenis_Kelamin | No_HP        |
++------+------------+--------------+---------------+---------------+--------------+
+| 2440 | novela     | Kendal       | 2006-11-15    | P             | 083100000081 |
+| 2442 | supil      | cirebyon     | 1997-09-01    | P             | 082000035    |
+| 2445 | oyel       | blora        | 1996-06-15    | P             | 08200000092  |
+| 95   | seungcheol | daegu        | 1995-09-13    | L             | 08100000095  |
+| 99   | yeonjun    | seoul        | 1999-09-13    | L             | 08100000099  |
++------+------------+--------------+---------------+---------------+--------------+
+5 rows in set (0.001 sec)
+
+MariaDB [novel]> DELETE FROM `txt` WHERE `NPM` = '95';
+Query OK, 1 row affected (0.032 sec)
+
+MariaDB [novel]> select * from txt;
++------+---------+--------------+---------------+---------------+--------------+
+| NPM  | Nama    | Tempat_Lahir | Tanggal_Lahir | Jenis_Kelamin | No_HP        |
++------+---------+--------------+---------------+---------------+--------------+
+| 2440 | novela  | Kendal       | 2006-11-15    | P             | 083100000081 |
+| 2442 | supil   | cirebyon     | 1997-09-01    | P             | 082000035    |
+| 2445 | oyel    | blora        | 1996-06-15    | P             | 08200000092  |
+| 99   | yeonjun | seoul        | 1999-09-13    | L             | 08100000099  |
++------+---------+--------------+---------------+---------------+--------------+
+4 rows in set (0.000 sec)
+
+MariaDB [novel]> SELECT NPM, Nama, Jenis_Kelamin FROM txt WHERE Jenis_Kelamin = 'L';
++-----+---------+---------------+
+| NPM | Nama    | Jenis_Kelamin |
++-----+---------+---------------+
+| 99  | yeonjun | L             |
++-----+---------+---------------+
+1 row in set (0.032 sec)
+
+MariaDB [novel]>
